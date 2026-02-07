@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #007BFF 0%, #0056b3 50%, #003d82 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .success-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            font-size: 5em;
+            color: #28a745;
+            margin-bottom: 20px;
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+            color: white;
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f4f8;
+            color: #007BFF;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: #e8ecf1;
+            transform: translateY(-2px);
+        }
+
+        .message {
+            background: #e8f5e9;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: left;
+            color: #2e7d32;
+        }
+
+        @media (max-width: 600px) {
+            .success-container {
+                padding: 35px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .success-icon {
+                font-size: 4em;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Message Sent Successfully! 🎉</h1>
+        <div class="message">
+            <p><strong>Thank you!</strong> Your message has been received. I'll review it and get back to you as soon as possible.</p>
+        </div>
+        <p>I appreciate you reaching out. Your inquiry is important to me.</p>
+        <div class="button-group">
+            <a href="index.html" class="btn btn-primary">Back to Portfolio</a>
+            <a href="index.html#contact" class="btn btn-secondary">Contact Again</a>
+        </div>
+    </div>
+
+    <script>
+        // Trigger confetti on page load
+        function triggerConfetti() {
+            const duration = 4000;
+            const animationEnd = Date.now() + duration;
+
+            const interval = setInterval(() => {
+                if (Date.now() > animationEnd) {
+                    clearInterval(interval);
+                    return;
+                }
+
+                confetti({
+                    particleCount: 100,
+                    angle: Math.random() * 360,
+                    spread: 70,
+                    gravity: 0.8,
+                    origin: {
+                        x: Math.random(),
+                        y: Math.random() * 0.5
+                    }
+                });
+            }, 150);
+        }
+
+        // Start confetti when page loads
+        window.addEventListener('load', triggerConfetti);
+    </script>
+</body>
+</html>
