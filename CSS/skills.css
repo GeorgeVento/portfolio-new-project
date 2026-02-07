@@ -66,21 +66,17 @@ Clean skills grid with hover effects
     letter-spacing: -0.01em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: repeat(2, 1fr); 
         gap: 1rem;
     }
-    
+
     .skill-item {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 0.5rem;
     }
-    
+
     .skill-item i {
         font-size: 2rem;
-    }
-    
-    .skill-item span {
-        font-size: 0.875rem;
     }
 }

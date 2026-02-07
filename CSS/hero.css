@@ -90,3 +90,9 @@ Clean, impactful hero section
         font-size: 0.9375rem;
     }
 }
+
+@media (max-width: 768px) {
+    .hero-section::before {
+        display: none; 
+    }
+}
